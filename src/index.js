@@ -9,10 +9,25 @@ import interior from './restaurant-interior.jpg';
 function header () {
     const header = document.createElement('header');
 
+    /*
     const headerImg = new Image();
     headerImg.src = interior;
 
     header.appendChild(headerImg);
+    */
+
+    const nameContainer = document.createElement('div');
+    nameContainer.classList.add('nameContainer');
+
+    const namePrefix = document.createElement('h2');
+    namePrefix.innerHTML = "The ";
+
+    const name = document.createElement('h1');
+    name.innerHTML = "Big Donut"
+
+    nameContainer.append(namePrefix, name);
+
+    header.append(nameContainer);
 
     return header;
 }
@@ -20,7 +35,7 @@ function header () {
 function nav () {
     const nav = document.createElement('nav');
 
-    const links = [];
+    const tabs = [];
 
     const homeLink = document.createElement('div');
     homeLink.innerHTML = 'Home';
@@ -31,16 +46,16 @@ function nav () {
     const contactLink = document.createElement('div');
     contactLink.innerHTML = 'Contact';
 
-    links.push(homeLink, menuLink, contactLink);
+    tabs.push(homeLink, menuLink, contactLink);
 
-    for (let link of links) {
-        link.onclick = () => {
-            console.log(`clicked ${link.innerHTML}`);
-            switchTab(link.innerHTML);
+    for (let tab of tabs) {
+        tab.onclick = () => {
+            switchTab(tab.innerHTML);
         }
+        tab.classList.add('tab')
     }
 
-    nav.append(...links);
+    nav.append(...tabs);
 
     return nav;
 }
@@ -48,9 +63,8 @@ function nav () {
 const content = document.getElementById('content');
 
 function switchTab(tab) {
-    while (content.childNodes[2]) {
-        content.removeChild(content.childNodes[2]);
-    }
+    content.removeChild(content.childNodes[2]);
+    
     switch (tab) {
         case 'Home':
             content.appendChild(home());

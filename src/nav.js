@@ -1,7 +1,7 @@
 export default function nav () {
     const nav = document.createElement('nav');
 
-    const tabs = ['Home', 'Menu', 'Contact']
+    let tabs = [];
 
     const homeLink = document.createElement('div');
     homeLink.innerHTML = 'Home'
@@ -12,7 +12,13 @@ export default function nav () {
     const contactLink = document.createElement('div');
     contactLink.innerHTML = 'Contact'
 
-    nav.append(homeLink, menuLink, contactLink)
+    tabs.push(homeLink, menuLink, contactLink);
+
+    for (let tab of tabs) {
+        tab.classlist.add('tab');
+    }
+
+    nav.append(...tabs);
 
     return nav;
 }
