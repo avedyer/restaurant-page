@@ -14,13 +14,17 @@ export default function contact() {
 
     const received = document.createElement('p');
     received.innerHTML = "Thanks! We'll reply shortly if needed.";
-    received.classList.add('invisible', 'received');
-
+    received.classList.add('received', 'animatedOpacity');
+ 
     submit.onclick = () => {
-        received.classList.remove('invisible');
+        if(received.parentNode){
+            received.parentNode.removeChild(received);
+        }
+        contact.append(received);
+        textbox.value = '';
     }
 
-    contact.append(textbox, submit, received);
+    contact.append(textbox, submit);
 
     return contact
 }

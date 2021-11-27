@@ -186,10 +186,29 @@ menu {
     text-align: right;
 }
 
+.animatedOpacity {
+    animation-name: lightFade;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+}
+
 /* GENERIC CLASSES */
 
 .invisible { 
     visibility: hidden;
+}
+
+.transparent {
+    opacity: 0.5;
+}
+
+@keyframes lightFade {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.5;
+    }
 }
 
 .blueBg { 
