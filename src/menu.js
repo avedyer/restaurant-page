@@ -14,7 +14,7 @@ export default function menu() {
             this.name = name
             this.image = image
             this.price = price
-            this.availabe = available
+            this.available = available
         }
     }
 
@@ -55,6 +55,8 @@ export default function menu() {
         newInfoElement.append(newNameElement, newBreakElement, newPriceElement);
 
         newItemElement.append(newBackgroundElement, newInfoElement);
+
+        if (!item.available) {newItemElement.classList.add('unavailable')};
 
         menu.append(newItemElement);
     }

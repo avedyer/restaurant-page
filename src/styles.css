@@ -70,6 +70,7 @@ menu {
     width: 260px;
     height: 260px;
     position: relative;
+    margin-bottom: 60px;
 }
 
 .itemInfo {
@@ -83,7 +84,7 @@ menu {
     position: absolute;
     bottom: 0px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     justify-items: stretch;
     align-items: baseline;
     font-size: 18px;
@@ -93,4 +94,25 @@ menu {
     width: inherit;
     height: inherit;
     object-fit: contain;
+}
+
+.unavailable * {
+    opacity: 0.7;
+}
+
+.unavailable::before {
+    opacity: 1;
+    display: inline-block;
+    content: 'Out Of Stock!';
+    position: absolute;
+    top: 40%;
+    left: 0%;
+    width: 260px;
+    text-align: center;
+    line-height: 2;
+    z-index: 1;
+    background-color: rgba(255, 0, 0, 0.8);
+    font-size: 32px;
+    letter-spacing: 0.08em;
+    /*transform:  translateX(-50%) translateY(-50%) rotate(-45deg);*/
 }
