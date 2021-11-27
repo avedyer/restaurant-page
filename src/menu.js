@@ -49,10 +49,7 @@ export default function menu() {
         newPriceElement.innerHTML = item.price;
         newPriceElement.classList.add('itemPrice');
 
-        let newBreakElement = document.createElement('div');
-        newBreakElement.innerHTML = '-'
-
-        newInfoElement.append(newNameElement, newBreakElement, newPriceElement);
+        newInfoElement.append(newNameElement, newPriceElement);
 
         newItemElement.append(newBackgroundElement, newInfoElement);
 
