@@ -1,3 +1,5 @@
+/* MAIN SECTIONS */
+
 body {
     padding: 0;
     margin: 0;
@@ -16,25 +18,34 @@ body {
     opacity: 0.2;
 }
 
-.blueBg { 
-    background: hsla(211, 55%, 85%, 0.8);
+#content {
+    width: 80vw;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: scroll;
+    margin: auto;
+    padding: 0px 48px 0px 48px;
+    scrollbar-color: grey rgba(0, 0, 0, 0);
+    overflow-x: hidden;
 }
 
+/* HEADER */
+
 header {
-    width: 60%;
-    height: 200px;
+    width: 80%;
     overflow: hidden;
     margin: 0 auto 48px auto;
-    border-bottom: 4px double hsla(0, 0%, 25%, 0.4);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 24px;
-    background: linear-gradient(hsla(0, 0%, 0%, 0), 	hsla(211, 55%, 85%, 0.8));
+    background: linear-gradient(hsla(0, 0%, 0%, 0), hsla(211, 55%, 85%, 0.8));
 }
 
 .nameContainer{
     width: 60%;
+    padding-bottom: 48px;
+    margin-left: 14%;
 }
 
 .nameContainer * {
@@ -49,54 +60,44 @@ h2 {
     font-size: 24px;
 }
 
-#content {
-    width: 80vw;
-    height: 100vh;
-    box-sizing: border-box;
-    overflow: scroll;
-    margin: auto;
-    padding: 0px 48px 0px 48px;
-}
-
 nav {
-     width: 100%;
-     display: flex;
-     justify-content: space-between;
-     align-items: flex-end;
- }
-
- .tab:hover {
-    text-decoration: underline;
- }
-
- .home { 
-     width: 50%;
-     margin-top: 24px;
-     padding: 36px;
- }
-
- article {
-     margin: auto;
-     
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
 }
 
-.home p {
+.tab:hover {
+    text-decoration: underline;
+}
+
+/* LANDING PAGE */
+
+
+article { 
+    width: 50%;
+    padding: 36px;
     margin: auto;
 }
 
-.home img {
+article p {
+    text-align: center;
+}
+
+article img {
     display: block;
     width: 240px;
     height: 240px;
     object-fit: contain;
-    margin: auto;
-} 
+    margin: 36px auto 36px auto;
+}
+
+/* MENU PAGE */
 
 menu {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
-    background: hsla(211, 55%, 85%, 0.8);
 }
 
 .menuItem {
@@ -156,8 +157,9 @@ menu {
     background-color: rgba(255, 0, 0, 0.8);
     font-size: 32px;
     letter-spacing: 0.08em;
-    /*transform:  translateX(-50%) translateY(-50%) rotate(-45deg);*/
 }
+
+/* CONTACT PAGE */
 
 .contact { 
     width: 50%;  
@@ -167,7 +169,6 @@ menu {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 12px;
-    background: hsla(211, 55%, 85%, 0.8);
     padding: 36px;
 }
 
@@ -185,6 +186,16 @@ menu {
     text-align: right;
 }
 
+/* GENERIC CLASSES */
+
 .invisible { 
     visibility: hidden;
+}
+
+.blueBg { 
+    background: hsla(211, 55%, 85%, 0.8);
+}
+
+.bottomBorder { 
+    border-bottom: 5px double hsla(0, 0%, 0%, 0.3);
 }

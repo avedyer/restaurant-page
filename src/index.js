@@ -13,6 +13,7 @@ backgroundImg.classList.add('background');
 
 function header () {
     const header = document.createElement('header');
+    header.classList.add('bottomBorder');
 
     const nameContainer = document.createElement('div');
     nameContainer.classList.add('nameContainer');

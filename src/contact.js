@@ -1,6 +1,6 @@
 export default function contact() {
     const contact = document.createElement('form');
-    contact.classList.add('contact');
+    contact.classList.add('contact', 'blueBg', 'bottomBorder');
 
     const textbox = document.createElement('textarea');
     textbox.setAttribute('placeholder', 'Comments? Questions? Compliments? Leave your message here!');

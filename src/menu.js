@@ -28,6 +28,7 @@ export default function menu() {
     ]
 
     const menu = document.createElement('menu');
+    menu.classList.add('blueBg', 'bottomBorder');
 
     for (const item of menuItems) {
 
