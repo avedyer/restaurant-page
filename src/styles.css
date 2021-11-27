@@ -62,28 +62,35 @@ h2 {
 }
 
 menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .menuItem {
-    width: 240px;
-    height: 240px;
-    background-size: 200px 200px;
-    background-repeat: no-repeat;
-    text-align: center;
-    background-position: center;
+    width: 260px;
+    height: 260px;
     position: relative;
 }
 
-.itemName {
+.itemInfo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 40px;
+    padding: 10px;
     color: white;
     position: absolute;
     bottom: 0px;
     left: 50%;
     transform: translate(-50%, -50%);
+    justify-items: stretch;
+    align-items: baseline;
+    font-size: 18px;
+}
+
+.menuIcon {
+    width: inherit;
+    height: inherit;
+    object-fit: contain;
 }

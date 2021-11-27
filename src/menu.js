@@ -1,3 +1,13 @@
+function importAll(r) {
+    let images = {};
+    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    return images;
+  }
+  
+const images = importAll(require.context('./donuts', false, /\.(png|jpe?g|svg)$/));
+
+console.log(images);
+
 export default function menu() {
     class MenuItem {
         constructor(name, image, price, available) {
@@ -17,27 +27,34 @@ export default function menu() {
         new MenuItem('Cookie Cat', 'cookie-cat.png', '1.99', false)
     ]
 
-    const imgFolder = "../src/donuts/"
-
     const menu = document.createElement('menu');
 
     for (const item of menuItems) {
 
-        console.log(item.image);
+        let newBackgroundElement = document.createElement('img')
+        newBackgroundElement.src = images[item.image];
+        newBackgroundElement.classList.add('menuIcon');
+
         let newItemElement = document.createElement('div');
         newItemElement.classList.add('menuItem');
-
-        let newImgLocation = imgFolder.concat(item.image)
-
-        newItemElement.style.backgroundImage = `url(${newImgLocation})`;
         
+        let newInfoElement = document.createElement('div');
+        newInfoElement.classList.add('itemInfo');
+
         let newNameElement = document.createElement('div');
-        newNameElement.classList.add('itemName');
         newNameElement.innerHTML = item.name;
+        newNameElement.classList.add('itemName');
 
-        newItemElement.append(newNameElement);
-        
-        console.log(newItemElement.style.backgroundImage);
+        let newPriceElement = document.createElement('div');
+        newPriceElement.innerHTML = item.price;
+        newPriceElement.classList.add('itemPrice');
+
+        let newBreakElement = document.createElement('div');
+        newBreakElement.innerHTML = '-'
+
+        newInfoElement.append(newNameElement, newBreakElement, newPriceElement);
+
+        newItemElement.append(newBackgroundElement, newInfoElement);
 
         menu.append(newItemElement);
     }
