@@ -4,17 +4,15 @@ import './styles.css';
 import home from './home.js';
 import menu from './menu.js';
 import contact from './contact.js';
-import interior from './restaurant-interior.jpg';
+
+import background from './donut-background.png';
+
+const backgroundImg = new Image();
+backgroundImg.src = background;
+backgroundImg.classList.add('background');
 
 function header () {
     const header = document.createElement('header');
-
-    /*
-    const headerImg = new Image();
-    headerImg.src = interior;
-
-    header.appendChild(headerImg);
-    */
 
     const nameContainer = document.createElement('div');
     nameContainer.classList.add('nameContainer');
@@ -27,12 +25,6 @@ function header () {
 
     nameContainer.append(namePrefix, name);
 
-    header.append(nameContainer);
-
-    return header;
-}
-
-function nav () {
     const nav = document.createElement('nav');
 
     const tabs = [];
@@ -57,6 +49,13 @@ function nav () {
 
     nav.append(...tabs);
 
+    header.append(nameContainer, nav);
+
+    return header;
+}
+
+function nav () {
+
     return nav;
 }
 
@@ -78,4 +77,4 @@ function switchTab(tab) {
     }
 }
 
-content.append(header(), nav(), home());
+content.append(backgroundImg, header(), home());
