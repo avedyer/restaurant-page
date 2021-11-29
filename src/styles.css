@@ -34,10 +34,11 @@ body {
     font-family: 'Kosugi Maru', sans-serif;
     letter-spacing: 0.06em;
     line-height: 1.4;
+    overflow-x: hidden;
 }
 
 .background {
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -49,13 +50,8 @@ body {
 
 #content {
     width: 100vw;
-    height: 100vh;
-    box-sizing: border-box;
-    overflow: scroll;
     margin: auto;
-    padding: 0px 48px 0px 48px;
     scrollbar-color: grey rgba(0, 0, 0, 0);
-    overflow-x: hidden;
 }
 
 a {
@@ -78,6 +74,7 @@ header {
     justify-content: space-between;
     padding: 24px;
     background: linear-gradient(hsla(0, 0%, 0%, 0), hsla(211, 55%, 85%, 0.8));
+    box-sizing: border-box;
 }
 
 .nameContainer{
@@ -103,6 +100,7 @@ h2 {
 nav {
     margin: auto;
     width: 60%;
+    min-width: 300px;
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
@@ -124,7 +122,6 @@ nav {
 
 .about { 
     text-align: center;
-    padding-bottom: 20px;
     font-style: italic;
     font-size: 18px;
 }
@@ -135,6 +132,8 @@ nav {
 
 .home p { 
     font-size: 18px;
+    max-width: 80vw;
+    margin: auto
 }
 
 .home img {
@@ -150,22 +149,20 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: auto;
-    justify-content: space-evenly;
+    justify-items: center;
 }
 
-.infoCell { 
-    margin: auto;
-}
 
 
 /* MENU PAGE */
 
 menu {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     width: 70%;
     margin: auto;
+    padding: 0px;
 }
 
 .menuItem {
@@ -174,6 +171,7 @@ menu {
     position: relative;
     margin-bottom: 60px;
 }
+
 
 .itemInfo {
     display: grid;
@@ -251,7 +249,7 @@ menu {
 
 .contact textarea {
     font-size: 16px;
-    width: 100%;
+    width: 90%;
 }
 
 .send {
@@ -272,7 +270,8 @@ menu {
 /* FOOTER */
 
 footer { 
-    width: 60%;
+    width: 30%;
+    min-width: 320px;
     margin: 48px auto 0px auto;
     height: 48px;
     font-size: 20px;
@@ -310,4 +309,23 @@ footer img {
 
 .bottomBorder { 
     border-bottom: 5px double hsla(0, 0%, 0%, 0.3);
+}
+
+@media (max-width: 600px) {
+    #content { 
+        overflow-x: scroll;
+    }
+
+    header {
+        width: 100vw;
+    }
+
+    .nameContainer { 
+        margin-left: 0;
+    }
+
+    .home, menu, .contact {
+        width: 100vw;
+        padding: 12px;
+    }
 }
