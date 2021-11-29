@@ -58,6 +58,15 @@ body {
     overflow-x: hidden;
 }
 
+a {
+    color: darkslateblue;
+    text-decoration: none;
+}
+
+a:hover { 
+    text-decoration: underline;
+}
+
 /* HEADER */
 
 header {
@@ -241,7 +250,7 @@ menu {
 }
 
 .contact textarea {
-    font-size: 24px;
+    font-size: 16px;
     width: 100%;
 }
 
@@ -258,6 +267,22 @@ menu {
     animation-name: lightFade;
     animation-duration: 1.5s;
     animation-fill-mode: both;
+}
+
+/* FOOTER */
+
+footer { 
+    width: 60%;
+    margin: 48px auto 0px auto;
+    height: 48px;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 12px;
+}
+
+footer img {
+    width: 1em;
+    height: 1em;
 }
 
 /* GENERIC CLASSES */

@@ -6,6 +6,7 @@ import menu from './menu.js';
 import contact from './contact.js';
 
 import background from './donut-background.png';
+import githubLogo from './github-logo.png';
 
 const backgroundImg = new Image();
 backgroundImg.src = background;
@@ -55,9 +56,24 @@ function header () {
     return header;
 }
 
-function nav () {
+function footer() {
+    const footer = document.createElement('footer');
+    footer.classList.add('blueBg', 'bottomBorder');
+    
+    footer.innerHTML = "Created by ";
+    
+    const linkElement = document.createElement('a');
+    linkElement.setAttribute('href', 'github.com/avedyer');
 
-    return nav;
+    const logoElement = new Image;
+    logoElement.src = githubLogo;
+
+    linkElement.append(logoElement);
+    linkElement.innerHTML += " Avery Dyer";
+
+    footer.append(linkElement);
+
+    return footer;
 }
 
 const content = document.getElementById('content');
@@ -67,15 +83,15 @@ function switchTab(tab) {
     
     switch (tab) {
         case 'Home':
-            content.appendChild(home());
+            content.insertBefore(home(), content.children[2]);
             break
         case 'Menu':
-            content.appendChild(menu());
+            content.insertBefore(menu(), content.children[2])
             break
         case 'Contact':
-            content.appendChild(contact());
+            content.insertBefore(contact(), content.children[2])
             break
     }
 }
 
-content.append(backgroundImg, header(), home());
+content.append(backgroundImg, header(), home(), footer());
